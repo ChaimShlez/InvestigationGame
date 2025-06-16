@@ -6,28 +6,35 @@ using System.Threading.Tasks;
 
 namespace InvestigationGame.Base
 {
-    internal class AudioSensor
+    internal abstract class Sensor
     {
         private string Name;
         private bool IsActivate;
 
-        public AudioSensor(string name)
+        public Sensor(string name)
         {
             Name = name;
             IsActivate = false;
         }
 
-        public virtual bool Activate(string name)
+        public abstract bool Activate(string name);
+        
+           
+        
+
+        
+
+        public string name
         {
-            if(IsActivate == false && name == this.Name)
-            {
-                IsActivate = true;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            get { return Name; }
+            set { Name = value; }
         }
+
+        public bool isActivate
+        {
+            get { return IsActivate; }
+            set { IsActivate= value; }
+        }
+
     }
 }

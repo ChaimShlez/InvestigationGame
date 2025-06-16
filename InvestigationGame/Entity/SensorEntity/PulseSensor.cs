@@ -9,13 +9,15 @@ namespace InvestigationGame.Entity.SensorEntity
 {
     internal class PulseSensor : Sensor, IBreaks
     {
-        private bool isBroken;
-        private int capacity;
+        private bool IsBroken;
+        private int Capacity;
 
         public PulseSensor() : base("PulseSensor")
         {
-            isBroken = false;
-            capacity = 3; 
+
+
+            IsBroken = false;
+            Capacity = 3; 
         }
 
         public override bool Activate(string name)
@@ -25,10 +27,10 @@ namespace InvestigationGame.Entity.SensorEntity
             {
                 isActivate = true;
 
-                capacity --;
-                if (capacity <= 0)
+                Capacity --;
+                if (Capacity <= 0)
                 {
-                    isBroken = true;
+                    IsBroken = true;
                 }
                 return true;
             }
@@ -55,14 +57,14 @@ namespace InvestigationGame.Entity.SensorEntity
 
 
 
-        public bool IsBroken
+        public bool isBroken
         {
-            get { return isBroken; }
+            get { return IsBroken; }
         }
 
-        public int amountCapsity
+        public int capacity
         {
-            get { return capacity; }
+            get { return Capacity; }
         }
     }
 }
