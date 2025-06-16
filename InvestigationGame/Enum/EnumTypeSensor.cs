@@ -9,7 +9,9 @@ namespace InvestigationGame.Enum
     internal enum EnumTypeSensor
     {
         AudioSensor,
-        ThermalSensor
+        ThermalSensor,
+     
+        PulseSensor
 
     }
 }
