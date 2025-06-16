@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using InvestigationGame.Enum;
 
 namespace InvestigationGame.Base
 {
-    internal class IranianAgent_footSolider
+    internal class IranianAgent
     {
         private int Id;
         private EnumTypeRank Type;
         private int AmountWeaknessesSensors;
         private EnumTypeSensor[] EnumTypeSensors;
+        private List<Sensor> Sensors;
 
         private static readonly Random rand = new Random();
 
-        public IranianAgent_footSolider(EnumTypeRank type, int amount)
+        public IranianAgent(EnumTypeRank type, int amount)
         {
             Type = type;
             AmountWeaknessesSensors = amount;
@@ -31,10 +33,31 @@ namespace InvestigationGame.Base
 
             return sensors;
         }
+        
 
-        public EnumTypeRank AgentType => Type;
+        public void AttachSensor(Sensor sensor)
+        {
+            Sensors.Add(sensor);
+        }
 
-        public EnumTypeSensor[] WeaknessSensors => EnumTypeSensors;
+        public int amountWeaknessesSensors
+        {
+            get { return AmountWeaknessesSensors; }
+            set { AmountWeaknessesSensors = value; }
+        }
+
+        public EnumTypeSensor[] enumTypeSensors
+        {
+            get { return EnumTypeSensors; }
+            set { EnumTypeSensors = value; }
+        }
+
+        public List<Sensor> sensors
+        {
+            get { return Sensors; }
+            set { Sensors = value; }
+        }
+
     }
 }
 
