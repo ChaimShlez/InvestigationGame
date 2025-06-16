@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace InvestigationGame.Base
 {
-    internal interface IIsBreakscs
+    internal interface IBreaks
     {
+
+        bool isBroken { get; }
+        int capacity { get; }
+
+        bool IsBreaks();
     }
 }
