@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Base;
 using InvestigationGame.Entity;
+using InvestigationGame.Entity.IranianEntity;
+using InvestigationGame.Entity.SensorEntity;
 using InvestigationGame.Enum;
 using InvestigationGame.Factory;
 
@@ -15,11 +17,12 @@ namespace InvestigationGame.Manager
 
         private IranianAgent Agent;
         private LogicManager logicManager;
-
-        public InvestigationManager(IranianAgent agent  ,LogicManager _logicManager)
+        private HandleVisitor handleVisitor;
+        public InvestigationManager(IranianAgent agent  ,LogicManager _logicManager , HandleVisitor _handleVisitor)
         {
             Agent = agent;
             logicManager = _logicManager;
+            handleVisitor  =_handleVisitor;
             Game();
            
         }
@@ -28,13 +31,14 @@ namespace InvestigationGame.Manager
         {
             Sensor sensor = SensorFactory.CreateSensor(sensorType);
             Agent.AttachSensor(sensor);
+            Agent.Accept(handleVisitor);
             AllActivates();
             
         }
 
         private void AllActivates()
         {
-           foreach(var sensor in Agent.sensors)
+           foreach(var sensor in Agent.sensors.ToList())
             {
                 ActivateResult result = sensor.Activate(Agent);
                 if (result.IsBroken == true)
@@ -57,25 +61,25 @@ namespace InvestigationGame.Manager
             }
         }
 
-        
-        
 
         public void Game()
         {
-
 
             int maxChoice = 10;
 
             while (maxChoice > 0)
             {
                 Console.WriteLine("----------------- ");
-                Console.WriteLine("Please enter your choice: ");
+                Console.WriteLine("Please enter your type sensor: ");
                 Console.WriteLine(
                     $"1. choice {EnumTypeSensor.AudioSensor}\n" +
                     $"2. choice {EnumTypeSensor.ThermalSensor}\n" +
-                    $"3. choice {EnumTypeSensor.PulseSensor}");
+                    $"3. choice {EnumTypeSensor.PulseSensor}\n"+
+                    $"4. choice {EnumTypeSensor.MotionSensor}\n" +
+                    $"5. choice {EnumTypeSensor.MagneticSensor}\n" +
+                    $"6. choice {EnumTypeSensor.SignalSensor}\n" +
+                    $"7. choice {EnumTypeSensor.LightSensor}");
 
-               
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out int choice))
@@ -91,6 +95,19 @@ namespace InvestigationGame.Manager
                         case 3:
                             AttachSensor(EnumTypeSensor.PulseSensor);
                             break;
+                        case 4:
+                            AttachSensor(EnumTypeSensor.MotionSensor);
+                            break;
+                        case 5:
+                            AttachSensor(EnumTypeSensor.MagneticSensor);
+                            break;
+                        case 6:
+                            AttachSensor(EnumTypeSensor.SignalSensor);
+                            break;
+                        case 7:
+                            AttachSensor(EnumTypeSensor.LightSensor);
+                        
+                            break;
                         default:
                             Console.WriteLine("Invalid choice");
                             break;
@@ -102,25 +119,7 @@ namespace InvestigationGame.Manager
                 }
 
                 maxChoice--;
-                if(maxChoice==7 || maxChoice ==4 || maxChoice == 1)
-                {
-                    if(Agent.typeRank == EnumTypeRank.SquadLeader || Agent.typeRank == EnumTypeRank.OrganizationLeader)
-                    {
-                        removeRandomFromSensors();
-                    }
-                    else if (Agent.typeRank == EnumTypeRank.SeniorCommandor)
-                    {
-                        for(int i = 0 ;i < 2; i++)
-                        {
-                            removeRandomFromSensors();
-                        }
-                    }
-
-
-                }
-                {
-
-                }
+                
                 if (maxChoice == 0)
                 {
                     Console.WriteLine("Game over");
@@ -130,12 +129,6 @@ namespace InvestigationGame.Manager
             
         }
 
-        private void removeRandomFromSensors()
-        {
-            Random rand =new Random();
-            
-            int indexRemove = rand.Next(Agent.sensors.Count);
-            Agent.sensors.Remove(Agent.sensors[indexRemove]);
-        }
+        
     }
 }

@@ -21,7 +21,11 @@ namespace InvestigationGame.Factory
                     return new FootSolider();
                 case EnumTypeRank.SquadLeader:
                     return new SquadLeader();
-                
+                case EnumTypeRank.SeniorCommandor:
+                    return new SeniorCommandor();
+                case EnumTypeRank.OrganizationLeader:
+                    return new OrganizationLeader();
+
                 default:
                     throw new ArgumentException("Unknown sensor type");
             }

@@ -10,8 +10,12 @@ namespace InvestigationGame.Enum
     {
         AudioSensor,
         ThermalSensor,
-     
-        PulseSensor
+        PulseSensor,
+        MotionSensor,
+        MagneticSensor,
+        SignalSensor,
+        LightSensor
+
 
     }
 }

@@ -4,7 +4,7 @@ using InvestigationGame.Enum;
 
 namespace InvestigationGame.Base
 {
-    internal class IranianAgent
+    internal abstract class IranianAgent
     {
         private int Id;
         private EnumTypeRank Type;
@@ -41,6 +41,10 @@ namespace InvestigationGame.Base
             Sensors.Add(sensor);
         }
 
+        public virtual void Accept(IVisitorAgent visitor)
+        {
+            visitor.VisitAgent(this);
+        }
         public int amountWeaknessesSensors
         {
             get { return AmountWeaknessesSensors; }

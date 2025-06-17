@@ -22,6 +22,14 @@ namespace InvestigationGame.Factory
                     return new ThermalSensor();
                 case EnumTypeSensor.PulseSensor:
                     return new PulseSensor();
+                case EnumTypeSensor.MotionSensor:
+                    return new MotionSensor();
+                case EnumTypeSensor.MagneticSensor:
+                    return new MagneticSensor();
+                case EnumTypeSensor.SignalSensor:
+                    return new SignalSensor();
+                case EnumTypeSensor.LightSensor:
+                    return new LightSensor();
                 default:
                     throw new ArgumentException("Unknown sensor type");
             }
@@ -29,3 +37,9 @@ namespace InvestigationGame.Factory
     }
 
 }
+
+      
+       
+       
+        
+        

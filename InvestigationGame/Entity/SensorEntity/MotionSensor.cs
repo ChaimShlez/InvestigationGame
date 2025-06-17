@@ -8,33 +8,35 @@ using InvestigationGame.Enum;
 
 namespace InvestigationGame.Entity.SensorEntity
 {
-    internal class PulseSensor : Sensor, IBreaks
+    internal class MotionSensor : Sensor, IBreaks
     {
+
         private bool IsBroken;
         private int Capacity;
 
-        public PulseSensor() : base(EnumTypeSensor.PulseSensor)
+        public MotionSensor() : base(EnumTypeSensor.MotionSensor)
         {
 
-
             IsBroken = false;
-            Capacity = 3; 
+            Capacity = 3;
         }
 
         public override ActivateResult Activate(IranianAgent agent)
         {
-           
-                 Capacity --;
-                if (Capacity <= 0)
-                {
-                    IsBroken = true;
-                }
+            Capacity--;
+            if (Capacity <= 0)
+            {
+                IsBroken = true;
+            }
             return new ActivateResult("", IsBroken);
-            
+
         }
 
-        
+        //public bool IsBreaks()
+        //{
 
+        //    return isBroken;
+        //}
 
         public bool isBroken
         {
@@ -45,5 +47,7 @@ namespace InvestigationGame.Entity.SensorEntity
         {
             get { return Capacity; }
         }
+
+
     }
 }

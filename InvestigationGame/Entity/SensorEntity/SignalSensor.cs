@@ -8,26 +8,23 @@ using InvestigationGame.Enum;
 
 namespace InvestigationGame.Entity.SensorEntity
 {
-    internal class ThermalSensor : Sensor, IGetInfromation
+    internal class SignalSensor : Sensor, IGetInfromation
     {
-        
-
-        public ThermalSensor() : base(EnumTypeSensor.ThermalSensor)
+        public SignalSensor() : base(EnumTypeSensor.SignalSensor)
         {
         }
 
         public override ActivateResult Activate(IranianAgent agent)
         {
-            string str=GatherInformation(agent);
+            string str = GatherInformation(agent);
 
             return new ActivateResult(str);
         }
-       
 
         public string GatherInformation(IranianAgent agent)
         {
-            return AgentInfromation.GetRandomSensorType(agent);
-        }
 
+            return AgentInfromation.GetRank(agent);
+        }
     }
 }

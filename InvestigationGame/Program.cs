@@ -15,11 +15,7 @@ namespace InvestigationGame
     {
         static void Main(string[] args)
         {
-            //IranianAgent agentFoot = new FootSolider();
-            //Sensor sensorAudio = new AudioSensor();
-            //Sensor sensorPulse = new PulseSensor();
-            //Sensor sensorThermal = new ThermalSensor();
-            //InvestigationManager maneger = new InvestigationManager(agentFoot);
+            
             ManagerAgent m = new ManagerAgent();
             m.createAgent();
 
