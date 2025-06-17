@@ -4,30 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Base;
+using InvestigationGame.Enum;
 
 namespace InvestigationGame.Entity.IranianEntity
 {
     internal class AudioSensor : Sensor
     {
-        public AudioSensor() : base("AudioSensor")
+        public AudioSensor() : base(EnumTypeSensor.AudioSensor)
         {
         }
 
-        public override bool Activate(string name)
+        public override ActivateResult Activate(IranianAgent agent)
         {
-            if (!isActivate)
-            {
-                isActivate = true;
 
-            }
-            if (name == this.name)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            return new ActivateResult("");
+            
         }
     }
 }

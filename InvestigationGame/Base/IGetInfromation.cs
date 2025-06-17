@@ -8,5 +8,6 @@ namespace InvestigationGame.Base
 {
     internal interface IGetInfromation
     {
+       string GatherInformation(IranianAgent agent);
     }
 }

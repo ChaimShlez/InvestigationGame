@@ -19,6 +19,7 @@ namespace InvestigationGame.Base
             Type = type;
             AmountWeaknessesSensors = amount;
             EnumTypeSensors = CreateRandomTypeSensors(amount);
+            Sensors = new List<Sensor>();
         }
 
         private EnumTypeSensor[] CreateRandomTypeSensors(int amount)
