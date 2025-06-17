@@ -44,8 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\IRemove.cs" />
+    <Compile Include="Base\IVisitorAgent.cs" />
     <Compile Include="Entity\IranianEntity\OrganizationLeader.cs" />
     <Compile Include="Entity\IranianEntity\SeniorCommandor.cs" />
+    <Compile Include="Entity\SensorEntity\AgentInfromation.cs" />
+    <Compile Include="Entity\SensorEntity\LightSensor.cs" />
+    <Compile Include="Entity\SensorEntity\MagneticSensor.cs" />
+    <Compile Include="Entity\SensorEntity\MotionSensor.cs" />
+    <Compile Include="Entity\SensorEntity\SignalSensor.cs" />
     <Compile Include="Factory\AgentFactory.cs" />
     <Compile Include="Base\IGetInfromation.cs" />
     <Compile Include="Base\IBreaks.cs" />
@@ -59,6 +66,7 @@
     <Compile Include="Entity\SensorEntity\ThermalSensor.cs" />
     <Compile Include="Enum\EnumTypeRank.cs" />
     <Compile Include="Enum\EnumTypeSensor.cs" />
+    <Compile Include="Manager\HandleVisitor.cs" />
     <Compile Include="Manager\InvestigationManager.cs" />
     <Compile Include="Manager\LogicManager.cs" />
     <Compile Include="Manager\ManagerAgent.cs" />

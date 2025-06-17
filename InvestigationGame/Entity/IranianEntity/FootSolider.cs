@@ -13,5 +13,10 @@ namespace InvestigationGame.Entity.IranianEntity
         public FootSolider() : base(EnumTypeRank.FootSolider, 2)
         {
         }
+
+        //public override void Accept(IVisitorAgent visitor)
+        //{
+        //    visitor.VisitFootSolidr(this);
+        //}
     }
 }

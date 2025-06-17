@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace InvestigationGame.Base
 {
-    internal interface IBreaks
+    internal interface IRemove
     {
-
-        bool isBroken { get; }
-        int capacity { get; }
-
-        //bool IsBreaks();
+        int count { get; }
+        void Remove();
     }
 }

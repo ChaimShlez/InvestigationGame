@@ -17,17 +17,21 @@ namespace InvestigationGame.Manager
 
              
             LogicManager logicManager = new LogicManager();
-            InvestigationManager manager = new InvestigationManager(agent, logicManager);
+            HandleVisitor handleVisitor = new HandleVisitor();
+            InvestigationManager manager = new InvestigationManager(agent, logicManager , handleVisitor);
         }
 
         public void createAgent()
         {
+
+            Console.Write("Please enter your agent: ");
             Console.WriteLine(
                 $"1. choice {EnumTypeRank.FootSolider}\n" +
                 $"2. choice {EnumTypeRank.SquadLeader}\n" +
-                $"3. choice {EnumTypeRank.SeniorCommandor}");
+                $"3. choice {EnumTypeRank.SeniorCommandor}\n" +
+                $"4. choice {EnumTypeRank.OrganizationLeader}");
 
-            Console.Write("Please enter your choice: ");
+           
             string input = Console.ReadLine();
 
             if (int.TryParse(input, out int choice))
@@ -42,6 +46,9 @@ namespace InvestigationGame.Manager
                         break;
                     case 3:
                         AttachAgent(EnumTypeRank.SeniorCommandor);
+                        break;
+                    case 4:
+                        AttachAgent(EnumTypeRank.OrganizationLeader);
                         break;
                     default:
                         Console.WriteLine("Invalid choice");
