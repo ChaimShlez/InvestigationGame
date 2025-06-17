@@ -1,11 +1,11 @@
-# 🕵️ InvestigationGame
+ InvestigationGame
 
 **InvestigationGame** is a console-based detective game where the player tries to capture an Iranian agent by attaching appropriate sensors based on hidden weaknesses. 
 Each agent has a rank and weaknesses that the player must discover and match using the correct tools.
 
 ---
 
-## 🔄 Program Flow
+ Program Flow
 
 1. **`Program.cs`**
    - Entry point of the application.
@@ -51,7 +51,7 @@ Each agent has a rank and weaknesses that the player must discover and match usi
 
 ---
 
-## 💡 Design Principles
+ Design Principles
 
 This project applies several SOLID principles and best practices:
 
@@ -62,12 +62,9 @@ This project applies several SOLID principles and best practices:
 
 ---
 
-## 🧠 Enumerations
+Enumerations
 
 - `EnumTypeRank`: Represents agent ranks like `FootSoldier`, `SquadLeader`, `SeniorCommander`, `OrganizationLeader`.
 - `EnumTypeSensor`: Types of sensors such as `AudioSensor`, `ThermalSensor`, `PulseSensor`, etc.
 
----
-
-## 🧩 Example File Structure
-
+-
