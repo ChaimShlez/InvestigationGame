@@ -8,7 +8,7 @@ using InvestigationGame.Entity.IranianEntity;
 using InvestigationGame.Entity.SensorEntity;
 using InvestigationGame.Enum;
 
-namespace InvestigationGame
+namespace InvestigationGame.Factory
 {
     internal static class SensorFactory
     {

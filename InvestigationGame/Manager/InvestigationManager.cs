@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 using InvestigationGame.Base;
 using InvestigationGame.Entity;
 using InvestigationGame.Enum;
+using InvestigationGame.Factory;
 
-namespace InvestigationGame
+namespace InvestigationGame.Manager
 {
     internal class InvestigationManager
     {
 
         private IranianAgent Agent;
+        private LogicManager logicManager;
 
-        public InvestigationManager(IranianAgent agent)
+        public InvestigationManager(IranianAgent agent  ,LogicManager _logicManager)
         {
             Agent = agent;
+            logicManager = _logicManager;
             Game();
-           foreach(var item in Agent.enumTypeSensors)
-            {
-                Console.WriteLine(item);
-            }
+           
         }
 
         public void AttachSensor(EnumTypeSensor sensorType)
@@ -47,7 +47,7 @@ namespace InvestigationGame
                 }
 
             }
-            int match= CheckingMatches();
+            int match = logicManager.CheckingMatches(Agent);
 
             Console.WriteLine($"{match}/ {Agent.enumTypeSensors.Length}");
             if(match == Agent.enumTypeSensors.Length)
@@ -57,74 +57,25 @@ namespace InvestigationGame
             }
         }
 
-        private int CheckingMatches()
-        {
-            
-            var dictFromWeaknesses = insertToDict(Agent.enumTypeSensors);
-            var dictFromSensors = insertToDict(Agent.sensors);
-            int match = 0;
-
-            foreach(var item in dictFromSensors)
-            {
-                EnumTypeSensor typeKey = item.Key;
-                int amountTypeInSensors = item.Value;
-
-                if (dictFromWeaknesses.ContainsKey(typeKey))
-                {
-                    int amountInWeaknesses = dictFromWeaknesses[typeKey];
-                    match += Math.Min(amountTypeInSensors, amountInWeaknesses);
-                }
-            }
-            return match;
-        }
-        private Dictionary<EnumTypeSensor, int> insertToDict(EnumTypeSensor[] sensorTypes)
-        {
-            Dictionary<EnumTypeSensor, int> dictAmountTypesFromWeaknesses = new Dictionary<EnumTypeSensor, int>();
-
-            foreach (EnumTypeSensor type in sensorTypes)
-            {
-                
-                if (dictAmountTypesFromWeaknesses.ContainsKey(type))
-                {
-                    dictAmountTypesFromWeaknesses[type]++;
-                }
-                else
-                {
-                    dictAmountTypesFromWeaknesses[type] = 1;
-                }
-            }
-            return dictAmountTypesFromWeaknesses;
-        }
-        private Dictionary<EnumTypeSensor, int> insertToDict(List<Sensor> sensors)
-        {
-            Dictionary<EnumTypeSensor, int> dictAmountTypesFromSensors = new Dictionary<EnumTypeSensor, int>();
-            foreach(Sensor sensor in sensors)
-            {
-                EnumTypeSensor type = sensor.tpye;
-                if (dictAmountTypesFromSensors.ContainsKey(type))
-                {
-                    dictAmountTypesFromSensors[type]++;
-                }
-                else
-                {
-                    dictAmountTypesFromSensors[type] = 1;
-                }
-            }
-            return dictAmountTypesFromSensors;
-        }
+        
+        
 
         public void Game()
         {
+
+
             int maxChoice = 10;
 
             while (maxChoice > 0)
             {
+                Console.WriteLine("----------------- ");
+                Console.WriteLine("Please enter your choice: ");
                 Console.WriteLine(
                     $"1. choice {EnumTypeSensor.AudioSensor}\n" +
                     $"2. choice {EnumTypeSensor.ThermalSensor}\n" +
                     $"3. choice {EnumTypeSensor.PulseSensor}");
 
-                Console.Write("Please enter your choice: ");
+               
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out int choice))
@@ -151,7 +102,25 @@ namespace InvestigationGame
                 }
 
                 maxChoice--;
+                if(maxChoice==7 || maxChoice ==4 || maxChoice == 1)
+                {
+                    if(Agent.typeRank == EnumTypeRank.SquadLeader || Agent.typeRank == EnumTypeRank.OrganizationLeader)
+                    {
+                        removeRandomFromSensors();
+                    }
+                    else if (Agent.typeRank == EnumTypeRank.SeniorCommandor)
+                    {
+                        for(int i = 0 ;i < 2; i++)
+                        {
+                            removeRandomFromSensors();
+                        }
+                    }
 
+
+                }
+                {
+
+                }
                 if (maxChoice == 0)
                 {
                     Console.WriteLine("Game over");
@@ -161,5 +130,12 @@ namespace InvestigationGame
             
         }
 
+        private void removeRandomFromSensors()
+        {
+            Random rand =new Random();
+            
+            int indexRemove = rand.Next(Agent.sensors.Count);
+            Agent.sensors.Remove(Agent.sensors[indexRemove]);
+        }
     }
 }

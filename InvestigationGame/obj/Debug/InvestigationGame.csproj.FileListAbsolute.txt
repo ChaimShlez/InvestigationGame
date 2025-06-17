@@ -1,7 +1,7 @@
+D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.AssemblyReference.cache
+D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.CoreCompileInputs.cache
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.exe.config
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.exe
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.pdb
-D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.AssemblyReference.cache
-D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.CoreCompileInputs.cache
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.exe
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.pdb
