@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Base;
+using InvestigationGame.Enum;
 
 namespace InvestigationGame.Entity.SensorEntity
 {
@@ -12,7 +13,7 @@ namespace InvestigationGame.Entity.SensorEntity
         private bool IsBroken;
         private int Capacity;
 
-        public PulseSensor() : base("PulseSensor")
+        public PulseSensor() : base(EnumTypeSensor.PulseSensor)
         {
 
 
@@ -20,24 +21,18 @@ namespace InvestigationGame.Entity.SensorEntity
             Capacity = 3; 
         }
 
-        public override bool Activate(string name)
+        public override ActivateResult Activate(IranianAgent agent)
         {
            
-            if (!isActivate && name == this.name)
-            {
-                isActivate = true;
+            
 
                 Capacity --;
                 if (Capacity <= 0)
                 {
                     IsBroken = true;
                 }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return new ActivateResult("", IsBroken);
+            
         }
 
         public bool IsBreaks()

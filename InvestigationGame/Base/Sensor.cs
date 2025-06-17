@@ -3,38 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InvestigationGame.Entity;
+using InvestigationGame.Enum;
 
 namespace InvestigationGame.Base
 {
     internal abstract class Sensor
     {
-        private string Name;
-        private bool IsActivate;
+        private EnumTypeSensor TypeSensor;
+        
 
-        public Sensor(string name)
+        public Sensor(EnumTypeSensor typeSensor)
         {
-            Name = name;
-            IsActivate = false;
+            TypeSensor = typeSensor;
         }
 
-        public abstract bool Activate(string name);
+        public abstract ActivateResult Activate(IranianAgent agent);
         
            
         
 
         
 
-        public string name
+        public EnumTypeSensor tpye
         {
-            get { return Name; }
-            set { Name = value; }
+            get { return TypeSensor; }
+            //set { Name = value; }
         }
 
-        public bool isActivate
-        {
-            get { return IsActivate; }
-            set { IsActivate= value; }
-        }
+        
 
     }
 }

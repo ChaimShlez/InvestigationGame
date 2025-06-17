@@ -12,33 +12,24 @@ namespace InvestigationGame.Entity.SensorEntity
     {
         
 
-        public ThermalSensor() : base("ThermalSensor")
+        public ThermalSensor() : base(EnumTypeSensor.ThermalSensor)
         {
         }
 
-        public override bool Activate(string name)
+        public override ActivateResult Activate(IranianAgent agent)
         {
-            if (!isActivate)
-            {
-                isActivate = true;
+            string str=GatherInformation(agent);
 
-            }
-            if (name == this.name)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return new ActivateResult(str);
         }
 
         public string GatherInformation(IranianAgent agent)
         {
             Random rand = new Random();
-            var values = System.Enum.GetValues(typeof(EnumTypeSensor));
-            var selectedSensor = (EnumTypeSensor)values.GetValue(rand.Next(values.Length));
-            return selectedSensor.ToString(); 
+            var values = agent.enumTypeSensors;
+            var selectedSensor = values[rand.Next(values.Length)];
+            return selectedSensor.ToString();
         }
+
     }
 }

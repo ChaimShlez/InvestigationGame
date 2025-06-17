@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +48,7 @@
     <Compile Include="Base\IBreaks.cs" />
     <Compile Include="Base\Sensor.cs" />
     <Compile Include="Base\IranianAgent.cs" />
+    <Compile Include="Entity\ActivateResult.cs" />
     <Compile Include="Entity\IranianEntity\FootSolider.cs" />
     <Compile Include="Entity\IranianEntity\SquadLeader.cs" />
     <Compile Include="Entity\SensorEntity\AudioSensor.cs" />
