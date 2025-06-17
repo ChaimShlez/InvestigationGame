@@ -58,6 +58,11 @@ namespace InvestigationGame.Base
             get { return Sensors; }
             set { Sensors = value; }
         }
+        public EnumTypeRank typeRank
+        {
+            get { return Type; }
+            //set { EnumTypeSensors = value; }
+        }
 
     }
 }
