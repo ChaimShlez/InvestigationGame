@@ -10,6 +10,7 @@ namespace InvestigationGame.Base
 {
     internal abstract class Sensor
     {
+        private int Id;
         private EnumTypeSensor TypeSensor;
         
 

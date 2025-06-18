@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InvestigationGame.Base;
+using InvestigationGame.Dal;
 using InvestigationGame.Entity;
 using InvestigationGame.Entity.IranianEntity;
 using InvestigationGame.Entity.SensorEntity;
@@ -18,19 +19,23 @@ namespace InvestigationGame.Manager
         private IranianAgent Agent;
         private LogicManager logicManager;
         private HandleVisitor handleVisitor;
-        public InvestigationManager(IranianAgent agent  ,LogicManager _logicManager , HandleVisitor _handleVisitor)
+        private long IDAgent;
+        private DalSensor dalSensor;
+        public InvestigationManager(IranianAgent agent, LogicManager _logicManager, HandleVisitor _handleVisitor, long _IDAgent, DalSensor _dalSensor)
         {
             Agent = agent;
             logicManager = _logicManager;
-            handleVisitor  =_handleVisitor;
-            Game();
-           
+            handleVisitor = _handleVisitor;
+            IDAgent = _IDAgent;
+            dalSensor = _dalSensor;
         }
 
         public void AttachSensor(EnumTypeSensor sensorType)
         {
             Sensor sensor = SensorFactory.CreateSensor(sensorType);
             Agent.AttachSensor(sensor);
+            dalSensor.CreateAgentSensor(sensor, IDAgent);
+
             Agent.Accept(handleVisitor);
             AllActivates();
             
@@ -51,7 +56,8 @@ namespace InvestigationGame.Manager
                 }
 
             }
-            int match = logicManager.CheckingMatches(Agent);
+            
+            int match = logicManager.CheckingMatches(dalSensor , IDAgent);
 
             Console.WriteLine($"{match}/ {Agent.enumTypeSensors.Length}");
             if(match == Agent.enumTypeSensors.Length)
