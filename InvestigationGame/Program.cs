@@ -19,11 +19,11 @@ namespace InvestigationGame
         {
             ConnectionWrapper connection = ConnectionWrapper.getInstance();
             DalAgent dalAgent = new DalAgent(connection);
-            DalSensor dalSensor = new DalSensor(connection);
 
+            DalSensor dalSensor = new DalSensor(connection);
             LogicManager logicManager = new LogicManager();
             HandleVisitor handleVisitor = new HandleVisitor();
-            ManagerAgent m = new ManagerAgent(logicManager, handleVisitor , dalAgent ,dalSensor);
+            ManagerAgent m = new ManagerAgent(logicManager, handleVisitor , dalAgent );
             m.createAgent();
 
 

@@ -10,7 +10,7 @@ namespace InvestigationGame.Entity.SensorEntity
 {
     internal class SignalSensor : Sensor, IGetInfromation
     {
-        public SignalSensor() : base(EnumTypeSensor.SignalSensor)
+        public SignalSensor(int id) : base(id,EnumTypeSensor.SignalSensor)
         {
         }
 

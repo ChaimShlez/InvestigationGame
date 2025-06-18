@@ -10,7 +10,7 @@ namespace InvestigationGame.Entity.IranianEntity
 {
     internal class AudioSensor : Sensor
     {
-        public AudioSensor() : base(EnumTypeSensor.AudioSensor)
+        public AudioSensor(int id) : base(id,EnumTypeSensor.AudioSensor)
         {
         }
 

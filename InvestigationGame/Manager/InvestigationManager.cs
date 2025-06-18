@@ -20,22 +20,21 @@ namespace InvestigationGame.Manager
         private LogicManager logicManager;
         private HandleVisitor handleVisitor;
         private long IDAgent;
-        private DalSensor dalSensor;
-        public InvestigationManager(IranianAgent agent, LogicManager _logicManager, HandleVisitor _handleVisitor, long _IDAgent, DalSensor _dalSensor)
+       
+        public InvestigationManager(IranianAgent agent, LogicManager _logicManager, HandleVisitor _handleVisitor, long _IDAgent)
         {
             Agent = agent;
             logicManager = _logicManager;
             handleVisitor = _handleVisitor;
             IDAgent = _IDAgent;
-            dalSensor = _dalSensor;
+            
         }
 
         public void AttachSensor(EnumTypeSensor sensorType)
         {
-            Sensor sensor = SensorFactory.CreateSensor(sensorType);
+          
+            Sensor sensor =DalSensor.CreateAgentSensor(sensorType, IDAgent);
             Agent.AttachSensor(sensor);
-            dalSensor.CreateAgentSensor(sensor, IDAgent);
-
             Agent.Accept(handleVisitor);
             AllActivates();
             
@@ -49,6 +48,7 @@ namespace InvestigationGame.Manager
                 if (result.IsBroken == true)
                 {
                     Agent.sensors.Remove(sensor);
+                    DalSensor.DeleteSensor(sensor.id);
                 }
                 if (!string.IsNullOrWhiteSpace(result.Info))
                 {
@@ -57,7 +57,7 @@ namespace InvestigationGame.Manager
 
             }
             
-            int match = logicManager.CheckingMatches(dalSensor , IDAgent);
+            int match = logicManager.CheckingMatches(IDAgent);
 
             Console.WriteLine($"{match}/ {Agent.enumTypeSensors.Length}");
             if(match == Agent.enumTypeSensors.Length)

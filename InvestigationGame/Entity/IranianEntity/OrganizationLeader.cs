@@ -30,10 +30,7 @@ namespace InvestigationGame.Entity.IranianEntity
 
         public void Remove()
         {
-            Random rand = new Random();
-
-            int indexRemove = rand.Next(sensors.Count);
-            sensors.Remove(sensors[indexRemove]);
+            RemoveSensor.Remove(this);
         }
     }
 }

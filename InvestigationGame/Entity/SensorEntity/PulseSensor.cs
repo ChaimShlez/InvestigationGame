@@ -13,7 +13,7 @@ namespace InvestigationGame.Entity.SensorEntity
         private bool IsBroken;
         private int Capacity;
 
-        public PulseSensor() : base(EnumTypeSensor.PulseSensor)
+        public PulseSensor(int id) : base(id,EnumTypeSensor.PulseSensor)
         {
 
 

@@ -1,3 +1,5 @@
+D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.AssemblyReference.cache
+D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.CoreCompileInputs.cache
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.exe.config
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.exe
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\InvestigationGame.pdb
@@ -33,8 +35,6 @@ D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\System.Numerics.Vectors.xml
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.AssemblyReference.cache
-D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.csproj.CoreCompileInputs.cache
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\Investig.F4172E7C.Up2Date
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.exe
 D:\Users\User\devlopment\Kodecode\homeWorks\InvestigationGame\InvestigationGame\obj\Debug\InvestigationGame.pdb
