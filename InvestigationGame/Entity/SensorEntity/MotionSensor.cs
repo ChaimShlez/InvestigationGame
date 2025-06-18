@@ -14,7 +14,7 @@ namespace InvestigationGame.Entity.SensorEntity
         private bool IsBroken;
         private int Capacity;
 
-        public MotionSensor() : base(EnumTypeSensor.MotionSensor)
+        public MotionSensor(int id) : base(id,EnumTypeSensor.MotionSensor)
         {
 
             IsBroken = false;

@@ -14,9 +14,11 @@ namespace InvestigationGame.Base
         private EnumTypeSensor TypeSensor;
         
 
-        public Sensor(EnumTypeSensor typeSensor)
+        public Sensor(int id ,EnumTypeSensor typeSensor)
         {
+            Id = id;
             TypeSensor = typeSensor;
+           
         }
 
         public abstract ActivateResult Activate(IranianAgent agent);
@@ -30,6 +32,12 @@ namespace InvestigationGame.Base
         {
             get { return TypeSensor; }
             //set { Name = value; }
+        }
+
+
+        public int id
+        {
+            get { return Id; }
         }
 
         

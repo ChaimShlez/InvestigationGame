@@ -10,7 +10,7 @@ namespace InvestigationGame.Entity.SensorEntity
 {
     internal class MagneticSensor : Sensor
     {
-        public MagneticSensor() : base(EnumTypeSensor.MagneticSensor)
+        public MagneticSensor(int id) : base(id,EnumTypeSensor.MagneticSensor)
         {
         }
 

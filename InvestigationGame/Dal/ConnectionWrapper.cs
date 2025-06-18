@@ -26,6 +26,7 @@ namespace malshinonProject.Dal
             return instance;
         }
 
+
         public long ExecutAlertion(string sql, Dictionary<string, object> paramters)
         {
             var connection = new MySqlConnection(ConnectionString);

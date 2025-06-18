@@ -16,23 +16,23 @@ namespace InvestigationGame.Manager
         private LogicManager logicManager;
         private HandleVisitor handleVisitor;
         private DalAgent dalAgent;
-        private DalSensor dalSensor;
+        
 
-        public ManagerAgent(LogicManager logicManager, HandleVisitor handleVisitor, DalAgent dalAgent, DalSensor dalSensor)
+        public ManagerAgent(LogicManager logicManager, HandleVisitor handleVisitor, DalAgent dalAgent)
         {
             this.logicManager = logicManager;
             this.handleVisitor = handleVisitor;
             this.dalAgent = dalAgent;
-            this.dalSensor = dalSensor;
+            
         }
 
         private void AttachAgent(EnumTypeRank rank)
         {
             IranianAgent agent = AgentFactory.CreateAgent(rank);
-           long idAgent = dalAgent.CreateAgent(agent);
+           long idAgent = DalAgent.CreateAgent(agent);
              
             
-            InvestigationManager manager = new InvestigationManager(agent, logicManager , handleVisitor ,idAgent , dalSensor);
+            InvestigationManager manager = new InvestigationManager(agent, logicManager , handleVisitor ,idAgent );
             manager.Game();
         }
 

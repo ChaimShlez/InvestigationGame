@@ -12,7 +12,7 @@ namespace InvestigationGame.Dal
     internal class DalAgent
     {
 
-        private ConnectionWrapper _connectionWrapper;
+        private static ConnectionWrapper _connectionWrapper;
 
         public DalAgent(ConnectionWrapper connectionWrapper)
         {
@@ -20,7 +20,7 @@ namespace InvestigationGame.Dal
         }
 
 
-        public long CreateAgent(IranianAgent agent)
+        public static long CreateAgent(IranianAgent agent)
         {
             long idAgent = SaveAgent(agent);
 
@@ -30,7 +30,7 @@ namespace InvestigationGame.Dal
             return idAgent;
         }
 
-        private List<long> GetIdFromMix(IranianAgent agent)
+        private static List<long> GetIdFromMix(IranianAgent agent)
         {
             List<long> idsFromMixture = new List<long>();
             foreach (var name in agent.enumTypeSensors)
@@ -59,7 +59,7 @@ namespace InvestigationGame.Dal
 
             return idsFromMixture;
         }
-        private void saveAgentMixtures(long AgentId, List<long> idsFromMixture)
+        private static void saveAgentMixtures(long AgentId, List<long> idsFromMixture)
         {
             int agentId = Convert.ToInt32(AgentId);
             foreach (long SensorId in idsFromMixture)
@@ -78,7 +78,7 @@ namespace InvestigationGame.Dal
             }
             
         }
-        private long SaveAgent(IranianAgent agent)
+        private static long SaveAgent(IranianAgent agent)
         {
             string sql = @"INSERT INTO agents (TypeRank,AmountWeaknessesSensors)
 

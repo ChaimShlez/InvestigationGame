@@ -12,7 +12,7 @@ namespace InvestigationGame.Entity.SensorEntity
     {
         
 
-        public ThermalSensor() : base(EnumTypeSensor.ThermalSensor)
+        public ThermalSensor(int id) : base(id,EnumTypeSensor.ThermalSensor)
         {
         }
 
